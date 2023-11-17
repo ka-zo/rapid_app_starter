@@ -23,7 +23,7 @@ compliance features are seamlessly integrated and ready to use. Get ahead, effic
 shared preferences.
 
   <p align="center">
-    <img src="./screenshots/10_start.gif?raw=true" alt="Splash screen followed by license display" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/10_start.gif?raw=true" alt="Splash screen followed by license display" width="200"/>
   </p>
 
 - License handling: You can add your own license to the [License] class in 
@@ -31,39 +31,39 @@ multiple languages. Currently, English, German, Hungarian and Spanish are suppor
 shall be displayed after the splash screen, the first time the app starts up. The user has to accept 
 this license, otherwise the app exits.
   <p align="center">
-    <img src="./screenshots/20_accept_license.gif?raw=true" alt="Accept license after startup" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/20_accept_license.gif?raw=true" alt="Accept license after startup" width="200"/>
   </p>
 - Shared preferences: The app supports state management using the
 [shared_preferences](https://pub.dev/packages/shared_preferences) package
 - Navigation drawer: The app has a built in navigation drawer defined in the [MyNavigationDrawer]
 widget. The user can access  that can be injected into any new page you create.
   <p align="center">
-    <img src="./screenshots/30_view_navigation_drawer.gif?raw=true" alt="View navigation drawer" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/30_view_navigation_drawer.gif?raw=true" alt="View navigation drawer" width="200"/>
   </p>
 - languages:
   <p align="center">
-    <img src="./screenshots/40_set_language.gif?raw=true" alt="Set languages" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/40_set_language.gif?raw=true" alt="Set languages" width="200"/>
   </p>
 - Color schemes: The app supports [Material 3](https://m3.material.io/) design with corresponding
 widgets and color schemes. The [ColorSchemeDefinition] class contains predefined color schemes.
 The user can change the actual color scheme by navigating to the corresponding menu provided by the
 [MyNavigationDrawer] class.
   <p align="center">
-    <img src="./screenshots/50_set_color_schemes.gif?raw=true" alt="Set color schemes" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/50_set_color_schemes.gif?raw=true" alt="Set color schemes" width="200"/>
   </p>
 - Brightness: The user can set the brightness of the app to light, dark or system by navigating to
 the corresponding menu provided by the [MyNavigationDrawer] class.
   <p align="center">
-    <img src="./screenshots/60_set_brightness.gif?raw=true" alt="Set brightness" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/60_set_brightness.gif?raw=true" alt="Set brightness" width="200"/>
   </p>
 - View license: The user can view the accepted license by selecting the corresponding menu in the
 navigation drawer widget of the app defined in the [MyNavigationDrawer] class.
   <p align="center">
-    <img src="./screenshots/70_view_license.gif?raw=true" alt="View license" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/70_view_license.gif?raw=true" alt="View license" width="200"/>
   </p>
 - About:
   <p align="center">
-    <img src="./screenshots/80_view_about.gif?raw=true" alt="View about" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/80_view_about.gif?raw=true" alt="View about" width="200"/>
   </p>
 - Logging: the app uses the [logger](https://pub.dev/packages/logger) package as a dependency to
 give the developer means for structured logging.
