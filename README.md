@@ -1,8 +1,8 @@
 # rapid_app_starter
 
 [![License: 3-Clause BSD](https://img.shields.io/badge/License-3--Clause_BSD-blue.svg)](https://opensource.org/license/bsd-3-clause)
-[![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![Platform|Android](https://img.shields.io/badge/Platform-Android-blue)](https://www.android.com/)
+[![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
 Accelerate app development effortlessly! This Flutter package offers a powerful starting template
 featuring Material 3 support, seamless internationalization, easy license handling, and flexible
