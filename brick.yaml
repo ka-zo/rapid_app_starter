@@ -1,5 +1,5 @@
 name: rapid_app_starter
-description: Accelerate app development effortlessly! This Flutter package offers a powerful starting template featuring Material 3 support, seamless internationalization, easy license handling, and flexible themes. With built-in state management and a navigation drawer for enhanced user experience, kickstart your project and watch your app come to life with ease and finesse.
+description: Empower your Flutter app with seamless language, theme, brightness customization, and license handling.
 
 # The following defines the brick repository url.
 # Uncomment and update the following line before publishing the brick.
