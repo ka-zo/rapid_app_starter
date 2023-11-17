@@ -1,3 +1,6 @@
+# 0.1.2
+- Description in brick.yaml is shortened to less than 120 characters.
+
 # 0.1.1
 - Badges for the license and for the platform are added.
 - Links of screenshots are replaced with URLs to github.
