@@ -1,3 +1,8 @@
+# 0.1.1
+- Badges for the license and for the platform are added.
+- Links of screenshots are replaced with URLs to github.
+- Unnecessary comments are removed from screen_main.dart
+
 # 0.1.0
 
 - Initial release supports android.
