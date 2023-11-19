@@ -8,8 +8,8 @@ Future<void> run(HookContext context) async {
   const List<String> flutterPackages = [
     'flutter_localization:^0.1.14',
     'logger:^2.0.2+1',
-    'package_info_plus:^4.1.0',
-    'shared_preferences:^2.2.1',
+    'package_info_plus:^4.2.0',
+    'shared_preferences:^2.2.2',
   ];
 
   context.vars['license'] = licenses[context.vars['license']];
