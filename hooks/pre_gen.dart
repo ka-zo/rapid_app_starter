@@ -6,9 +6,9 @@ import 'licenses.dart';
 
 Future<void> run(HookContext context) async {
   const List<String> flutterPackages = [
-    'flutter_localization:^0.1.14',
+    'flutter_localization:^0.2.0',
     'logger:^2.0.2+1',
-    'package_info_plus:^4.2.0',
+    'package_info_plus:^5.0.1',
     'shared_preferences:^2.2.2',
   ];
 

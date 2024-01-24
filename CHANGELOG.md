@@ -1,3 +1,6 @@
+# 0.1.3
+- flutter_localization package is upgraded to 0.2.0 and package_info_plus is upgraded to 5.0.1.
+
 # 0.1.2
 - Description in brick.yaml is shortened to less than 120 characters.
 
