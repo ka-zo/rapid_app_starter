@@ -15,7 +15,7 @@ class AcceptEulaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(eula.appName),
+        title: const Text(eula.appName),
       ),
       body: SafeArea(
         child: Padding(
