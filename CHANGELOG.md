@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Minor fix in the README.md file.
+
 # 0.2.0
 
 - flutter_native_splash package is added to improve user experience by preventing and

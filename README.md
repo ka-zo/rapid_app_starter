@@ -1,7 +1,7 @@
 # rapid_app_starter
 
   <p align="center">
-    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/rapid_app_starter_banner.png" alt="Splash screen followed by license display" width="1500"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/rapid_app_starter_banner.png?raw=true" alt="Rapid App Starter banner" width="1500"/>
   </p>
 
 [![License: 3-Clause BSD](https://img.shields.io/badge/License-3--Clause_BSD-blue.svg)](https://opensource.org/license/bsd-3-clause)
