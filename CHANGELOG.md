@@ -1,10 +1,26 @@
+# 0.2.0
+
+- flutter_native_splash package is added to improve user experience by preventing and
+customizing the white splash screen displayed by the native app that loads Flutter.
+- Rapid App Starter splash image is added to the assets directory.
+- Rapid App Starter launcher icons are added to this mason brick.
+- New boolean variable called generate_icons is added to this brick to allow the
+developer decide if Rapid App Starter launcher icons are needed in the newly
+generated app or not.
+- Documentation in the README.md file is modifed accordingly.
+- Minor fix to improve performance.
+- MaterialApp title fixed.
+
 # 0.1.3
+
 - flutter_localization package is upgraded to 0.2.0 and package_info_plus is upgraded to 5.0.1.
 
 # 0.1.2
+
 - Description in brick.yaml is shortened to less than 120 characters.
 
 # 0.1.1
+
 - Badges for the license and for the platform are added.
 - Links of screenshots are replaced with URLs to github.
 - Unnecessary comments are removed from screen_main.dart.
