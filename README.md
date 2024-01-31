@@ -103,19 +103,54 @@ mason make rapid_app_starter
 | ----------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------- |
 | `verbose`         | If installation of this brick should be verbose                                                               | false                                     | `boolean` |
 | `app_name`        | Full name of the app, that should be displayed on the app. This is not the same as the one in pubspec.yaml.   | Rapid App Starter                         | `string`  |
+| `generate_icons`         | If rapid app starter launcher icons should be added to the flutter app                                                               | false                                     | `boolean` |
 | `copyright_notice`| Copyright notice to be displayed in the app.                                                                  | Copyright (c) 2023 Your Company Name, Inc.| `string`  |
 | `license`         | This license shall be displayed by the app, and shall be saved in the LICENSE file of the project.            | BSD-3-Clause                              | `enum`    |
 
 ## Output
 
-The following files are created and/or modified.
+The following files are created and/or modified. Please note, that some of the installed packages,
+such as the [flutter_native_splash package](https://pub.dev/packages/flutter_native_splash) may generate
+additional files compared to what this brick generates.
 
 ```
 📂 {project_name}
 ┣ 📂 android
 ┃ ┣ 📂 app
+┃ ┃ ┣ 📂 src          src and its content is added, modifed only if generate_icons is True
+┃ ┃ ┃ ┗ 📂 main
+┃ ┃ ┃   ┗ 📂 res
+┃ ┃ ┃     ┣ 📂 mipmap-anydpi-v26
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_round.xml
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.xml
+┃ ┃ ┃     ┣ 📂 mipmap-hdpi
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_foreground.png
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_round.png
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.png
+┃ ┃ ┃     ┣ 📂 mipmap-ldpi
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.png
+┃ ┃ ┃     ┣ 📂 mipmap-mdpi
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_foreground.png
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_round.png
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.png
+┃ ┃ ┃     ┣ 📂 mipmap-xhdpi
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_foreground.png
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_round.png
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.png
+┃ ┃ ┃     ┣ 📂 mipmap-xxhdpi
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_foreground.png
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_round.png
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.png
+┃ ┃ ┃     ┣ 📂 mipmap-xxxhdpi
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_foreground.png
+┃ ┃ ┃     ┃ ┣ 📄 ic_launcher_round.png
+┃ ┃ ┃     ┃ ┗ 📄 ic_launcher.png
+┃ ┃ ┃     ┗ 📂 values
+┃ ┃ ┃       ┗ 📄 ic_launcher_background.xml
 ┃ ┃ ┗ 📄 build.gradle
 ┃ ┗ 📄 local.properties
+┣ 📂 assets
+┃ ┣ 📄 logo_no_background.png
 ┣ 📂 lib
 ┃ ┣ 📄 eula.dart
 ┃ ┣ 📄 globals.dart
@@ -124,23 +159,30 @@ The following files are created and/or modified.
 ┃ ┣ 📄 preferences.dart
 ┃ ┣ 📄 screen_eula.dart
 ┃ ┣ 📄 screen_main.dart
-┃ ┣ 📄 screen_splash.dart
 ┃ ┣ 📄 theme_data.dart
 ┃ ┗ 📄 widget_navigationdrawer.dart 
+┣ 📄 flutter_native_splash.yaml
 ┣ 📄 pubspec.yaml
 ┗ 📄 LICENSE
 ```
 
 ## Add your own splashscreen image
 
-Add the path to your image in the flutter/assets section of the `pubspec.yaml` file, then reference the image in the build method of the `_MySplashScreenState` class in the `screen_splash.dart` file. 
+Add your splash image in the assets directory. Make sure that you modify the `flutter_native_splash.yaml` file
+according to the documentation available on the homepage of the [flutter_native_splash package](https://pub.dev/packages/flutter_native_splash).
+
+After modifying the `flutter_native_splash.yaml` file, do not forget to run the following command in the terminal in the root directory of your generated flutter app:
+
+```
+dart run flutter_native_splash:create
+```
 
 ## Add your own custom license
 
 You can change the license, that shall be displayed by the app, anytime, by
 opening the `eula.dart` file, and then modifying the content of the License class.
 Requesting the custom license as mason input during installation is not practical, as
-the size of the license is most like too big for that. 
+the size of the license is most likely too big for that. 
 
 ## Add new words to the existing dictionaries
 
