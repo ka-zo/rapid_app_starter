@@ -8,7 +8,7 @@ repository: https://github.com/ka-zo/rapid_app_starter
 # The following defines the version and build number for your brick.
 # A version number is three numbers separated by dots, like 1.2.34
 # followed by an optional build number (separated by a +).
-version: 0.1.3
+version: 0.2.0
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
@@ -35,6 +35,10 @@ vars:
     default: Rapid App Starter
     description: Full name of the app, that should be displayed on the app. This is not the same as the one in pubspec.yaml.
     prompt: Name of the app, that should be displayed on the screen? (You can change this in the generated eula.dart file)
+  generate_icons:
+    type: boolean
+    default: false
+    description: If rapid app starter launcher icons should be added to the flutter app
   copyright_notice:
     type: string
     default: Copyright (c) 2023 Your Company Name, Inc.
