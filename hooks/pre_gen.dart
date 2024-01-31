@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 import 'licenses.dart';
+import 'utils.dart' as utils;
 
 Future<void> run(HookContext context) async {
   const List<String> flutterPackages = [
     'flutter_localization:^0.2.0',
+    'flutter_native_splash: ^2.3.10',
     'logger:^2.0.2+1',
     'package_info_plus:^5.0.1',
     'shared_preferences:^2.2.2',
@@ -20,13 +22,13 @@ Future<void> run(HookContext context) async {
 
   final progress = context.logger.progress("Installing packages...");
   for (String e in flutterPackages) {
-    _executeSync(
+    utils.executeSync(
         context: context,
         executable: 'flutter',
         parameters: ['pub', 'add', e],
         verbose: context.vars['verbose']);
   }
-  _executeSync(
+  utils.executeSync(
       context: context,
       executable: 'flutter',
       parameters: ['pub', 'get'],
@@ -45,6 +47,7 @@ flutter:
   # Do not forget to include here the path to your image for the splash screen
   assets:
     - android/app/src/main/res/mipmap-xxhdpi/
+    - assets/
 """);
     File('pubspec.yaml').writeAsStringSync(content);
   }
@@ -74,23 +77,4 @@ void _setFlutterMinSdkLevel({required HookContext context, required int minSdkVe
   } else {
     File(localPropertiesFile).writeAsStringSync("\n$newProperty", mode:FileMode.append);
   }
-}
-
-ProcessResult _executeSync({
-  required HookContext context,
-  required String executable,
-  required List<String> parameters,
-  required bool verbose,
-}) {
-  context.logger.info("$executable ${parameters.join(" ")}");
-
-  final ProcessResult result = Process.runSync(executable, parameters, runInShell: true);
-
-  if (result.exitCode != 0) {
-    context.logger.err(result.stderr);
-  } else if (verbose) {
-    context.logger.info(result.stdout);
-  }
-
-  return result;
 }
