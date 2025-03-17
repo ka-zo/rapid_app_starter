@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 
+import 'eula.dart' as eula;
 import 'languages.dart';
+import 'widget_home.dart';
 import 'widget_navigationdrawer.dart';
+{{#use_authentication}}
+import 'widget_profile.dart';
+{{/use_authentication}}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -21,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,31 +41,37 @@ class _MyHomePageState extends State<MyHomePage> {
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(AppLocale.mainPage.getString(context)),
+        title: const Text(eula.appName),
+      ),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        elevation: 5,
+        selectedIndex: currentPageIndex,
+        destinations: <Widget>[
+          NavigationDestination(
+            selectedIcon: const Icon(Icons.home),
+            icon: const Icon(Icons.home_outlined),
+            label: AppLocale.home.getString(context),
+          ),
+          NavigationDestination(
+            selectedIcon: const Icon(Icons.person),
+            icon: const Badge(child: Icon(Icons.person_outlined)),
+            label: AppLocale.profile.getString(context),
+          ),
+        ],
       ),
       body: SafeArea(
-          child: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              AppLocale.exampleText.getString(context),
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      )),
+          child: <Widget> [
+            const HomePage(),
+            {{#use_authentication}}
+            const UserProfilePage(),
+            {{/use_authentication}}
+          ][currentPageIndex],
+      ),
       endDrawer: const MyNavigationDrawer(),
     );
   }

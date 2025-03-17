@@ -1,16 +1,28 @@
 import 'dart:io';
 
+{{#use_authentication}}
+import 'package:firebase_core/firebase_core.dart';
+{{/use_authentication}}
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+{{#use_authentication}}
+import 'package:firebase_ui_localizations/firebase_ui_localizations.dart';
+{{/use_authentication}}
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'eula.dart' as eula;
+{{#use_authentication}}
+import 'firebase_options.dart';
+{{/use_authentication}}
 import 'globals.dart' as globals;
 import 'languages.dart';
 import 'preferences.dart' as preferences;
 import 'screen_eula.dart';
+{{#use_authentication}}
+import 'screen_login.dart';
+{{/use_authentication}}
 import 'screen_main.dart';
 import 'theme_data.dart';
 
@@ -32,9 +44,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState  extends State<MyApp> {
+  Locale currentLocale = const Locale('en');
 
   // the setState function here is a must to add
   void _onTranslatedLanguage(Locale? locale) {
+    currentLocale = locale ?? const Locale('en');
     setState(() {});
   }
 
@@ -68,6 +82,9 @@ class _MyAppState  extends State<MyApp> {
             initialRoute: '/',
             routes: {
               '/': (context) => const InitializeAppScreen(),
+              {{#use_authentication}}
+              '/login': (context) => const LoginScreen(),
+              {{/use_authentication}}
               '/eula': (context) => const AcceptEulaScreen(),
               '/home': (context) => const MyHomePage(),
             },
@@ -75,7 +92,15 @@ class _MyAppState  extends State<MyApp> {
             darkTheme: currentTheme.colorSchemeSet.dark,
             themeMode: currentTheme.brightness,
             supportedLocales: globals.localization.supportedLocales,
+            locale: currentLocale,
+            {{#use_authentication}}
+            localizationsDelegates: globals.localization.localizationsDelegates.toList() + [
+              FirebaseUILocalizations.delegate,
+            ],
+            {{/use_authentication}}
+            {{^use_authentication}}
             localizationsDelegates: globals.localization.localizationsDelegates,
+            {{/use_authentication}}
           );
         }
     );
@@ -111,6 +136,7 @@ class _InitializeAppScreenState  extends State<InitializeAppScreen> {
     globals.logger.i("System OS: ${Platform.operatingSystem}");
     globals.logger.i("System OS version: ${Platform.operatingSystemVersion}");
     globals.logger.i("System locale: ${Platform.localeName}");
+    globals.logger.i("Supported locales: ${globals.localization.supportedLocales}");
     final String? tempLanguageCode = preferences.getLanguageCode();
     globals.logger.i("Loaded languageCode: ${tempLanguageCode ?? 'language code is not yet saved.'}");
 
@@ -132,10 +158,15 @@ class _InitializeAppScreenState  extends State<InitializeAppScreen> {
     _eulaAccepted = preferences.getEulaAccepted() ?? false;
     globals.logger.i("User already accepted EULA: $_eulaAccepted");
 
-
     final actualColorSchemeSet = await ColorSchemeDefinition.actualColorSchemeSet;
     final actualBrightness = await ColorSchemeDefinition.actualBrightness;
     MyApp.themeNotifier.value = BrightnessSelector(colorSchemeSet: actualColorSchemeSet, brightness: actualBrightness);
+
+    {{#use_authentication}}
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    {{/use_authentication}}
   }
 
   @override
@@ -147,7 +178,12 @@ class _InitializeAppScreenState  extends State<InitializeAppScreen> {
       {
         FlutterNativeSplash.remove();
         _eulaAccepted
+            {{#use_authentication}}
+            ? Navigator.pushReplacementNamed(context, '/login')
+            {{/use_authentication}}
+            {{^use_authentication}}
             ? Navigator.pushReplacementNamed(context, '/home')
+            {{/use_authentication}}
             : Navigator.pushReplacementNamed(context, '/eula');
       });
     });

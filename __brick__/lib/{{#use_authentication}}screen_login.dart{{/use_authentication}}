@@ -1,0 +1,95 @@
+import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
+
+import 'languages.dart';
+import 'screen_main.dart';
+
+class AuthGate extends StatelessWidget {
+  const AuthGate({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return SignInScreen(
+            providers: [
+              EmailAuthProvider(),
+              GoogleProvider(clientId: "120962551360-5eojtavn2vsrqdqiv84s43lq0fn4r7tj.apps.googleusercontent.com"),  // new
+            ],
+            headerBuilder: (context, constraints, shrinkOffset) {
+              return Padding(
+                padding: const EdgeInsets.all(20),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child:  Container(
+                    padding: const EdgeInsets.all(3),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF222021),
+                    ),
+                    child: Image.asset(
+                      'assets/doorzilla-forgetfulis-high-resolution-logo-white-transparent.png')
+                  ),
+                ),
+              );
+            },
+            subtitleBuilder: (context, action) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: action == AuthAction.signIn
+                    ? Text(AppLocale.welcomeAndSignin.getString(context))
+                    : Text(AppLocale.welcomeAndSignup.getString(context)),
+              );
+            },
+            footerBuilder: (context, action) {
+              return Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  AppLocale.signinAlert.getString(context),
+                  style: const TextStyle(color: Colors.grey),
+                ),
+              );
+            },
+            sideBuilder: (context, shrinkOffset) {
+              return Padding(
+                padding: const EdgeInsets.all(20),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF222021),
+                      ),
+                      child: Image.asset(
+                          'assets/doorzilla-forgetfulis-high-resolution-logo-white-transparent.png')
+                  ),
+                ),
+              );
+            },
+          );
+        }
+        return const MyHomePage();
+      },
+    );
+  }
+}
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+  // This ValueNotifier should be used from all screens, when the theme should be changed.
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState  extends State<LoginScreen> {
+
+  @override
+  Widget build(BuildContext context) {
+
+    return const AuthGate();
+  }
+}

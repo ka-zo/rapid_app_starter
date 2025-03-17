@@ -1,0 +1,24 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:flutter/material.dart';
+
+class UserProfilePage extends StatefulWidget {
+  const UserProfilePage({super.key});
+  // This ValueNotifier should be used from all screens, when the theme should be changed.
+  @override
+  State<UserProfilePage> createState() => _UserProfilePageState();
+}
+
+class _UserProfilePageState extends State<UserProfilePage> {
+
+  @override
+  Widget build(BuildContext context) {
+
+    return ProfileScreen(
+      actions: [
+        SignedOutAction((context) {
+          Navigator.pushReplacementNamed(context, '/login');
+        })
+      ],
+    );
+  }
+}
