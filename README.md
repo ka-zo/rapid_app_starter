@@ -101,12 +101,34 @@ Start generating Infinum architecture folder structure:
 mason make rapid_app_starter
 ```
 
+## Authentication using Google Firebase
+
+You need to read this section only, if you selected authentication when you installed
+this mason brick.
+
+In order to allow authentication using Google Firebase, do not forget to perform some steps both
+on the server side and on the client side. You need to follow the steps on [this tutorial](https://firebase.google.com/codelabs/firebase-auth-in-flutter-apps#0),
+especially:
+
+- Step 2. "Create and set up a Firebase project".
+- Step 3.
+  - "Install Firebase CLI",
+  - "Install the FlutterFire CLI",
+  - "Add your Firebase project to your Flutter app"
+- Step 7.
+  - "Enable Google Sign-in Provider"
+  - "Configure sign-in button"
+  - Use `keytool` to list the SHA1 fingerprint stored in your default keystore to be entered into
+  the sign-in button configuration menu in Firebase in Step 7.
+  Follow[this page for help](https://developers.google.com/android/guides/client-auth).
+
 ## Variables
 
 | Variable          | Description                                                                                                   | Default                                   | Type      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------- |
 | `verbose`         | If installation of this brick should be verbose                                                               | false                                     | `boolean` |
 | `app_name`        | Full name of the app, that should be displayed on the app. This is not the same as the one in pubspec.yaml.   | Rapid App Starter                         | `string`  |
+| `use_authentication`         | Add sign-in and profile screen for authentication with Google Firebase                                                               | true                                     | `boolean` |
 | `generate_icons`         | If rapid app starter launcher icons should be added to the flutter app                                                               | false                                     | `boolean` |
 | `copyright_notice`| Copyright notice to be displayed in the app.                                                                  | Copyright (c) 2023 Your Company Name, Inc.| `string`  |
 | `license`         | This license shall be displayed by the app, and shall be saved in the LICENSE file of the project.            | BSD-3-Clause                              | `enum`    |
@@ -121,7 +143,7 @@ additional files compared to what this brick generates.
 📂 {project_name}
 ┣ 📂 android
 ┃ ┣ 📂 app
-┃ ┃ ┣ 📂 src          src and its content is added, modifed only if generate_icons is True
+┃ ┃ ┣ 📂 src                            # if generate_icons is True
 ┃ ┃ ┃ ┗ 📂 main
 ┃ ┃ ┃   ┗ 📂 res
 ┃ ┃ ┃     ┣ 📂 mipmap-anydpi-v26
@@ -162,9 +184,12 @@ additional files compared to what this brick generates.
 ┃ ┣ 📄 main.dart
 ┃ ┣ 📄 preferences.dart
 ┃ ┣ 📄 screen_eula.dart
+┃ ┣ 📄 screen_login.dart                # if use_authentication is true
 ┃ ┣ 📄 screen_main.dart
 ┃ ┣ 📄 theme_data.dart
-┃ ┗ 📄 widget_navigationdrawer.dart 
+┃ ┣ 📄 widget_home.dart
+┃ ┣ 📄 widget_navigationdrawer.dart
+┃ ┗ 📄 widget_profile.dart              # if use_authentication is true
 ┣ 📄 flutter_native_splash.yaml
 ┣ 📄 pubspec.yaml
 ┗ 📄 LICENSE
