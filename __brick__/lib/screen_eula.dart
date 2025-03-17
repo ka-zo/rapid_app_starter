@@ -37,9 +37,14 @@ class AcceptEulaScreen extends StatelessWidget {
                       setEulaAccepted(true);
                       globals.logger
                           .i("User accepted EULA. Saved eulaAccepted: True.");
+                      {{#use_authentication}}
+                      Navigator.pushReplacementNamed(context, '/login');
+                      {{/use_authentication}}
+                      {{^use_authentication}}
                       Navigator.pushReplacementNamed(context, '/home');
+                      {{/use_authentication}}
                     },
-                    child: const Text('Accept'),
+                    child: Text(AppLocale.accept.getString(context)),
                   ),
                   const SizedBox(height: 10.0),
                   ElevatedButton(
@@ -49,7 +54,7 @@ class AcceptEulaScreen extends StatelessWidget {
                       // Exit the app
                       SystemNavigator.pop();
                     },
-                    child: const Text('Decline'),
+                    child: Text(AppLocale.decline.getString(context)),
                   ),
                 ],
               )),
