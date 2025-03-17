@@ -16,19 +16,25 @@ mixin AppLocale {
   static const String eulaTitle = 'eula';
   static const String exampleText = 'example text';
   static const String green = 'green';
+  static const String home = 'home';
   static const String language = 'language';
   static const String license = 'license';
   static const String light = 'light';
   static const String mainPage = 'Main page';
   static const String menu = 'menu';
   static const String orange = 'orange';
+  static const String profile = 'profile';
   static const String purple = 'purple';
   static const String satellite = 'satellite';
   static const String selectLanguage = 'Select language';
+  static const String signinAlert = 'sign-in alert';
   static const String system = 'system';
   static const String theme = 'theme';
+  static const String userProfile = 'User Profile';
   static const String version = 'version';
   static const String viewLicenses = 'View licenses';
+  static const String welcomeAndSignin = 'Welcome and Sign-in';
+  static const String welcomeAndSignup = 'Welcome and Sign-up';
 
   static final Map<String, dynamic> en = {
     about: 'About',
@@ -43,19 +49,25 @@ mixin AppLocale {
     eulaTitle: 'End-User License Agreement',
     exampleText: 'This is an example text.',
     green: 'Green',
+    home: 'Home',
     language: 'Language',
     license: 'License',
     light: 'Light',
     mainPage: 'Main page',
     menu: 'Menu',
     orange: 'Orange',
+    profile: 'Profile',
     purple: 'Purple',
     satellite: 'satellite',
     selectLanguage: 'Select language',
+    signinAlert: 'By signing in, you agree to our terms and conditions.',
     system: 'System',
     theme: 'Theme',
+    userProfile: 'User Profile',
     version: 'Version',
     viewLicenses: 'View licenses',
+    welcomeAndSignin: "Welcome to ${eula.appName}, please sign in!",
+    welcomeAndSignup: "Welcome to ${eula.appName}, please sign up!",
   };
   static final Map<String, dynamic> de = {
     about: 'Impressum',
@@ -70,19 +82,25 @@ mixin AppLocale {
     eulaTitle: 'Endbenutzer-Lizenzvereinbarung',
     exampleText: 'Dies ist ein Beispieltext.',
     green: 'Grün',
+    home: 'Start',
     language: 'Sprache',
     license: 'Lizenz',
     light: 'Hell',
     mainPage: 'Hauptseite',
     menu: 'Menüs',
     orange: 'Orange',
+    profile: 'Profil',
     purple: 'Lila',
     satellite: 'Satelite',
     selectLanguage: 'Sprache wählen',
+    signinAlert: 'Mit Ihrer Anmeldung erklären Sie sich mit unseren Allgemeinen Geschäftsbedingungen einverstanden.',
     system: 'System',
     theme: 'Thema',
+    userProfile: 'Benutzerprofil',
     version: 'Version',
     viewLicenses: 'Lizenzen anschauen',
+    welcomeAndSignin: "Willkommen bei ${eula.appName}, bitte melden Sie sich an!",
+    welcomeAndSignup: "Willkommen bei ${eula.appName}, bitte registrieren Sie sich!",
   };
   static final Map<String, dynamic> es = {
     about: 'Quiénes somos',
@@ -97,19 +115,25 @@ mixin AppLocale {
     eulaTitle: 'Contrato de Licencia de Usuario Final',
     exampleText: 'Este es un texto de ejemplo.',
     green: 'Verde',
+    home: 'Inicio',
     language: 'Idioma',
     license: 'Licencia',
     light: 'Claro',
     mainPage: 'Pagina principal',
     menu: 'Menú',
     orange: 'Naranja',
+    profile: 'Perfil',
     purple: 'Morado',
     satellite: 'satélite',
     selectLanguage: 'Seleccione el idioma',
+    signinAlert: 'Al registrarse, acepta nuestras condiciones generales.',
     system: 'Sistema',
     theme: 'Tema',
+    userProfile: 'Perfil del usuario',
     version: 'Versión',
     viewLicenses: 'Ver licencias',
+    welcomeAndSignin: "Bienvenido a ${eula.appName}, ¡por favor, inicie sesión!",
+    welcomeAndSignup: "Bienvenido a ${eula.appName}, ¡por favor, regístrate!",
   };
   static final Map<String, dynamic> hu = {
     about: 'Névjegy',
@@ -124,18 +148,24 @@ mixin AppLocale {
     eulaTitle: 'Végfelhasználói Licencszerződés',
     exampleText: 'Ez egy példaszöveg.',
     green: 'Zöld',
+    home: 'Főoldal',
     language: 'Nyelv',
     license: 'Licenc',
     light: 'világos',
     mainPage: 'Fő oldal',
     menu: 'Menü',
     orange: 'Narancs',
+    profile: 'Profil',
     purple: 'Lila',
     satellite: 'műhold',
     selectLanguage: 'Válassz nyelvet',
+    signinAlert: 'A bejelentkezéssel Ön elfogadja általános szerződési feltételeinket.',
     system: 'Rendszer',
     theme: 'Téma',
+    userProfile: 'Felhasználói Profil',
     version: 'Verzió',
     viewLicenses: 'Licencek megtekintése',
+    welcomeAndSignin: "Üdvözöljük a ${eula.appName} appban, kérjük jelentkezzen be!",
+    welcomeAndSignup: "Üdvözöljük a ${eula.appName} appban, kérjük regisztráljon!",
   };
 }
