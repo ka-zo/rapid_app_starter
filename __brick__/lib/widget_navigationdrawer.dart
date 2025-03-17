@@ -92,7 +92,6 @@ class _MyNavigationDrawerState extends State<MyNavigationDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return NavigationDrawer(
       onDestinationSelected: (int idx) async {
         setState(() {
