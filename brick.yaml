@@ -8,7 +8,7 @@ repository: https://github.com/ka-zo/rapid_app_starter
 # The following defines the version and build number for your brick.
 # A version number is three numbers separated by dots, like 1.2.34
 # followed by an optional build number (separated by a +).
-version: 0.2.1
+version: 0.3.0
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
@@ -35,10 +35,21 @@ vars:
     default: Rapid App Starter
     description: Full name of the app, that should be displayed on the app. This is not the same as the one in pubspec.yaml.
     prompt: Name of the app, that should be displayed on the screen? (You can change this in the generated eula.dart file)
-  generate_icons:
+  use_authentication:
+    type: boolean
+    default: true
+    description: Add sign-in and profile screen for authentication with Google Firebase.
+    prompt: Do you want to enable Google Firebase based authentication in your app?
+  web_client_id:
+    type: string
+    default: YOUR_WEBCLIENT_ID
+    description: Web client id string in order to allow authentication with Google provider.
+    prompt: Web client id of the Google authentication provider from the Firebase console.
+  generate_ras_icons:
     type: boolean
     default: false
     description: If rapid app starter launcher icons should be added to the flutter app
+    prompt: Do you want rapid app starter icons to be generated?
   copyright_notice:
     type: string
     default: Copyright (c) 2023 Your Company Name, Inc.
