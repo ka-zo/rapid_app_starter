@@ -95,16 +95,12 @@ class ColorSchemeDefinition {
     name: ColorSchemeId.purple.name,
     light: ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00E20074),
-          brightness: Brightness.light,
-          primary: const Color(0x00E20074),
-          secondary: const Color(0x00E20074)),
+          brightness: Brightness.light),
       useMaterial3: true,
     ),
     dark: ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00E20074),
-          brightness: Brightness.dark,
-          primary: const Color(0x00E20074),
-          secondary: const Color(0x00E20074)),
+          brightness: Brightness.dark),
       useMaterial3: true,
     ),
     getColorString: AppLocale.purple.getString,
