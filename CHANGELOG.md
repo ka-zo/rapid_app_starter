@@ -1,3 +1,13 @@
+# 0.3.0
+
+- Authentication with Google Firebase is added, including a sign-in screen and a profile page.
+- Google social identity provider and e-mail, password based authentication is by
+default part of the sign-in process.
+- Google sign-in screen and profile page are also automatically translated.
+- NavigationBar is added for the home and for the profile page.
+- Missing translation is added to the EULA screen for the accept and decline buttons.
+- Fixing purple color theme by removing manual color scheme modifications.
+
 # 0.2.1
 
 - Minor fix in the README.md file.
