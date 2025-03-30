@@ -116,21 +116,9 @@ void _addFontsToPubspec({
 }
 
 void _setFlutterMinSdkLevel({required HookContext context, required int minSdkVersion}) {
-  const String buildGradleFile = './android/app/build.gradle';
-  final String now = DateTime.now().toLocal().toIso8601String().replaceAll(':', '-').substring(0,19);
-  final String buildGradleFileBak = "./android/app/$now.build.gradle";
   const String localPropertiesFile = './android/local.properties';
 
-  String content = File(buildGradleFile).readAsStringSync();
-  // Backing up gradle file.
-  context.logger.info("Backing up $buildGradleFile to $buildGradleFileBak");
-  File(buildGradleFileBak).writeAsStringSync(content);
-  // Modifying gradle file
-  context.logger.info("Modifying $buildGradleFile to read minSdkVersion from $localPropertiesFile");
-  content = content.replaceFirst(RegExp(r'minSdkVersion(.*)$', multiLine: true, dotAll: false), 'minSdkVersion localProperties.getProperty(\'flutter.minSdkVersion\').toInteger()');
-  File(buildGradleFile).writeAsStringSync(content);
-
-  content = File(localPropertiesFile).readAsStringSync();
+  String content = File(localPropertiesFile).readAsStringSync();
   final String newProperty = "flutter.minSdkVersion=$minSdkVersion";
   context.logger.info("Setting minSdkVersion to $minSdkVersion in $localPropertiesFile");
   if (content.contains('flutter.minSdkVersion')) {
