@@ -13,7 +13,7 @@ version: 0.3.0
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
 environment:
-  mason: ">=0.1.0-dev.51 <0.1.0"
+  mason: ">=0.1.0 <0.2.0"
 
 # Variables specify dynamic values that your brick depends on.
 # Zero or more variables can be specified for a given brick.
@@ -45,11 +45,11 @@ vars:
     default: YOUR_WEBCLIENT_ID
     description: Web client id string in order to allow authentication with Google provider.
     prompt: Web client id of the Google authentication provider from the Firebase console.
-  generate_ras_icons:
+  generate_icons:
     type: boolean
     default: false
     description: If rapid app starter launcher icons should be added to the flutter app
-    prompt: Do you want rapid app starter icons to be generated?
+    prompt: Do you want rapid app starter icons to be added?
   copyright_notice:
     type: string
     default: Copyright (c) 2023 Your Company Name, Inc.
