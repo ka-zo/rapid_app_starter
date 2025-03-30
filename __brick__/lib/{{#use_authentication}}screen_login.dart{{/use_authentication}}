@@ -19,7 +19,7 @@ class AuthGate extends StatelessWidget {
           return SignInScreen(
             providers: [
               EmailAuthProvider(),
-              GoogleProvider(clientId: "120962551360-5eojtavn2vsrqdqiv84s43lq0fn4r7tj.apps.googleusercontent.com"),  // new
+              GoogleProvider(clientId: "{{{web_client_id}}}"),  // new
             ],
             headerBuilder: (context, constraints, shrinkOffset) {
               return Padding(
@@ -32,7 +32,7 @@ class AuthGate extends StatelessWidget {
                       color: Color(0xFF222021),
                     ),
                     child: Image.asset(
-                      'assets/doorzilla-forgetfulis-high-resolution-logo-white-transparent.png')
+                      'assets/logo_no_background.png')
                   ),
                 ),
               );
@@ -65,7 +65,7 @@ class AuthGate extends StatelessWidget {
                         color: Color(0xFF222021),
                       ),
                       child: Image.asset(
-                          'assets/doorzilla-forgetfulis-high-resolution-logo-white-transparent.png')
+                          'assets/logo_no_background.png')
                   ),
                 ),
               );
