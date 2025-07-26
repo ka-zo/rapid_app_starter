@@ -38,6 +38,7 @@ Future<void> run(HookContext context) async {
       'firebase_ui_oauth_google:^1.4.2',
       'firebase_ui_localizations:^1.14.0',
     ];
+
     // Add SocialIcons font for Firebase UI Auth.
     final Map fontsSocialIcons = {
       'family': 'SocialIcons',
@@ -65,6 +66,7 @@ Future<void> run(HookContext context) async {
       key: "minSdkVersion",
       value: 23,
       appendIfMissing: true);
+
   // Update minSdk in build.gradle.kts.
   _setKeyInFile(
       context: context, filePath: buildGradleKts, key: "minSdk", value: 23);
@@ -86,6 +88,7 @@ Future<void> run(HookContext context) async {
         parameters: ['pub', 'add', e],
         verbose: context.vars['verbose']);
   }
+
   // Run flutter pub get to fetch all dependencies.
   utils.executeSync(
       context: context,
@@ -153,6 +156,7 @@ void _addFontsToPubspec({required HookContext context, required Map fonts}) {
         hasFonts = true;
       }
     });
+
     if (!hasFonts) {
       // Prepend new font to the fonts list.
       pubspec.prependToList(['flutter', 'fonts'], fonts);
@@ -208,11 +212,12 @@ void _setKeyInFile({
     final RegExp regex = RegExp('^([ \\t]*$key\\s*=\\s*).*', multiLine: true);
 
     // Replace all occurrences where the key is found.
-    // The replacement string combines the captured prefix (Group 1, e.g., "  setting_name=")
-    // with the new value.
+    // The replacement string combines the captured prefix
+    // (Group 1, e.g., "  setting_name=") with the new value.
     final String modifiedContent = content.replaceAllMapped(regex, (match) {
       // match.group(1) contains the prefix (leading whitespace + key=).
-      // We use '!' because if a match occurs, group(1) will always be non-null.
+      // We use '!' because if a match occurs, group(1) will always be
+      // non-null.
       return '${match.group(1)!}$formattedValue';
     });
 
