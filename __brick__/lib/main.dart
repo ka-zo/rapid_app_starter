@@ -26,8 +26,9 @@ import 'screen_login.dart';
 import 'screen_main.dart';
 import 'theme_data.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await FlutterLocalization.instance.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
@@ -52,8 +53,8 @@ class _MyAppState  extends State<MyApp> {
     setState(() {});
   }
 
-  Future<void> _initLocalization() async {
-    await globals.localization.init(
+  void _initLocalization() {
+    globals.localization.init(
       mapLocales: [
         MapLocale('en', AppLocale.en, countryCode: 'US',fontFamily: 'Font EN',),
         MapLocale('de', AppLocale.de, countryCode: 'DE',fontFamily: 'Font DE',),
