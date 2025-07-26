@@ -7,6 +7,8 @@ default part of the sign-in process.
 - NavigationBar is added for the home and for the profile page.
 - Missing translation is added to the EULA screen for the accept and decline buttons.
 - Fixing purple color theme by removing manual color scheme modifications.
+- README.md is updated with authentication related sections.
+- Flutter packages that are added to the newly created project are upgraded.
 
 # 0.2.1
 
