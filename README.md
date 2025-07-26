@@ -72,9 +72,10 @@ navigation drawer widget of the app defined in the [MyNavigationDrawer] class.
 - Logging: the app uses the [logger](https://pub.dev/packages/logger) package as a dependency to
 give the developer means for structured logging.
 
-## How to install
+## How to install the brick - Preparation
 
-Install [Mason CLI](https://pub.dev/packages/mason_cli) it's must have for using Mason bricks.
+Install [Mason CLI](https://pub.dev/packages/mason_cli). It is a must have for
+using Mason bricks.
 
 ```
 dart pub global activate mason_cli
@@ -96,31 +97,47 @@ Add mason brick to your project:
 ```
 mason add rapid_app_starter
 ```
-Start generating Infinum architecture folder structure:
-```
-mason make rapid_app_starter
-```
+
+At this point, you have added the brick to your project, but you did not yet
+execute it. Read the next section, if you want to allow Google Firebase based
+authentication, after that you can execute the brick, as it is described later
+in this document.
 
 ## Authentication using Google Firebase
 
-You need to read this section only, if you selected authentication when you installed
-this mason brick.
+You can skip this section, if you don't want to allow Google based
+authentication in your app.
 
-In order to allow authentication using Google Firebase, do not forget to perform some steps both
-on the server side and on the client side. You need to follow the steps on [this tutorial](https://firebase.google.com/codelabs/firebase-auth-in-flutter-apps#0),
-especially:
+In order to allow authentication using Google Firebase, do not forget to perform the following steps both
+on the server side and on the client side. You need to follow the steps in [this tutorial](https://firebase.google.com/codelabs/firebase-auth-in-flutter-apps#1),
+focusing mainly on:
 
 - Step 2. "Create and set up a Firebase project".
 - Step 3.
-  - "Install Firebase CLI",
-  - "Install the FlutterFire CLI",
-  - "Add your Firebase project to your Flutter app"
+  - "Install Firebase CLI" section,
+  - "Install the FlutterFire CLI" section,
+  - "Add your Firebase project to your Flutter app" section.
 - Step 7.
-  - "Enable Google Sign-in Provider"
-  - "Configure sign-in button"
-  - Use `keytool` to list the SHA1 fingerprint stored in your default keystore to be entered into
-  the sign-in button configuration menu in Firebase in Step 7.
-  Follow[this page for help](https://developers.google.com/android/guides/client-auth).
+  - "Enable Google Sign-in Provider" section,
+  - "Configure sign-in button" section,
+    - Make sure you copy the "Web client ID" in step 4 of the
+    "Configure sign-in button" section and temporarily save it.
+    You will need it in the "How to install" section of the present document.
+  - Important: To enable Google sign-in for your Android apps, you must provide the SHA-1 release fingerprint for each app in the Firebase console (go to Project Settings -> Your apps section). You can get the SHA-1 fingerprint if you follow the next bullet point.
+    - Use `keytool` to list the SHA1 fingerprint stored in your default keystore to be entered into
+    the sign-in button configuration menu in Firebase in Step 7.
+    Follow [this page for help](https://developers.google.com/android/guides/client-auth).
+
+## How to install the brick - Execution
+
+Make sure you performed the steps in the previous section, in case you want to
+add Google Firebase based authentication to your project. If this is the case,
+also make sure you have the Web client ID ready.
+
+You are ready now to execute mason brick in your project:
+```
+mason make rapid_app_starter
+```
 
 ## Variables
 
@@ -129,6 +146,7 @@ especially:
 | `verbose`         | If installation of this brick should be verbose                                                               | false                                     | `boolean` |
 | `app_name`        | Full name of the app, that should be displayed on the app. This is not the same as the one in pubspec.yaml.   | Rapid App Starter                         | `string`  |
 | `use_authentication`         | Add sign-in and profile screen for authentication with Google Firebase                                                               | true                                     | `boolean` |
+| `YOUR_WEBCLIENT_ID`        | Copy and paste the Web client ID from the Firebase console of your project. See step 4 of the **Configure sign-in button** section on [this](https://firebase.google.com/codelabs/firebase-auth-in-flutter-apps#6) page. Leave it empty, if you do not want to have authentication. |                         | `string`  |
 | `generate_icons`         | If rapid app starter launcher icons should be added to the flutter app                                                               | false                                     | `boolean` |
 | `copyright_notice`| Copyright notice to be displayed in the app.                                                                  | Copyright (c) 2023 Your Company Name, Inc.| `string`  |
 | `license`         | This license shall be displayed by the app, and shall be saved in the LICENSE file of the project.            | BSD-3-Clause                              | `enum`    |
