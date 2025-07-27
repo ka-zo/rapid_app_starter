@@ -31,8 +31,8 @@ Future<void> run(HookContext context) async {
   // If authentication is enabled, add Firebase and related packages.
   if (context.vars['use_authentication']) {
     flutterPackages += [
-      'firebase_core:^3.15.1',
-      'firebase_auth: ^5.6.2',
+      'firebase_core:^3.15.2',
+      'firebase_auth: ^5.7.0',
       'firebase_ui_auth:^1.17.0',
       'google_sign_in:^6.2.1',
       'firebase_ui_oauth_google:^1.4.2',
