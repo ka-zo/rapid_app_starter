@@ -30,7 +30,7 @@ final class License {
   static const String hu = """
 {{{license}}}
 """;
-  static const String cz = """
+  static const String cs = """
 {{{license}}}
 """;
   static const String pl = """

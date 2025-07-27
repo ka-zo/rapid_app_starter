@@ -60,6 +60,8 @@ class _MyAppState  extends State<MyApp> {
         MapLocale('de', AppLocale.de, countryCode: 'DE',fontFamily: 'Font DE',),
         MapLocale('es', AppLocale.es, countryCode: 'ES',fontFamily: 'Font ES',),
         MapLocale('hu', AppLocale.hu, countryCode: 'HU',fontFamily: 'Font HU',),
+        MapLocale('cs', AppLocale.cs, countryCode: 'CS',fontFamily: 'Font CS',),
+        MapLocale('pl', AppLocale.pl, countryCode: 'PL',fontFamily: 'Font PL',),
       ],
       initLanguageCode: 'en',
     );

@@ -180,7 +180,7 @@ mixin AppLocale {
     welcomeAndSignup:
         "Üdvözöljük a ${eula.appName} appban, kérjük regisztráljon!",
   };
-  static final Map<String, dynamic> cz = {
+  static final Map<String, dynamic> cs = {
     about: 'O aplikaci',
     accept: 'Přijmout',
     appDescription:
@@ -190,7 +190,7 @@ mixin AppLocale {
     colorScheme: 'Barevné schéma',
     dark: 'Tmavý režim',
     decline: 'Odmítnout',
-    eulaBody: eula.License.cz, // assuming Czech EULA is available
+    eulaBody: eula.License.cs, // assuming Czech EULA is available
     eulaTitle: 'Licenční smlouva s koncovým uživatelem',
     exampleText: 'Toto je ukázkový text.',
     green: 'Zelená',
