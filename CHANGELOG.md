@@ -1,3 +1,10 @@
+# 0.4.0
+
+- Support for Czech and Polish languages are added.
+- Mason package source code documentation is improved.
+- firebase_core and firebase_auth packages are upgraded.
+- Screenshots and animated gifs are added and updated for authentication and language support.
+
 # 0.3.0
 
 - Authentication with Google Firebase is added, including a sign-in screen and a profile page.
