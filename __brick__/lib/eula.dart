@@ -18,21 +18,22 @@ const String copyright = '{{{copyright_notice}}}';
 /// [License] can be used in the [AppLocale] class in order to provide
 /// translations of the license.
 final class License {
-  static const String en =
-"""
+  static const String en = """
 {{{license}}}
 """;
-  static const String de =
-"""
+  static const String de = """
 {{{license}}}
 """;
-  static const String es =
-"""
+  static const String es = """
 {{{license}}}
 """;
-  static const String hu =
-"""
+  static const String hu = """
 {{{license}}}
 """;
-
+  static const String cz = """
+{{{license}}}
+""";
+  static const String pl = """
+{{{license}}}
+""";
 }
