@@ -31,11 +31,16 @@ shared preferences.
   </p>
 
 - License handling: You can add your own license to the [License] class in 
-multiple languages. Currently, English, German, Hungarian and Spanish are supported. This license
+multiple languages. Currently, English, German, Hungarian, Spanish, Polish and Czech languages are supported. This license
 shall be displayed after the splash screen, the first time the app starts up. The user has to accept 
 this license, otherwise the app exits.
   <p align="center">
     <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/20_accept_license.gif?raw=true" alt="Accept license after startup" width="200"/>
+  </p>
+- Optional Firebase authentication: The app supports optional Firebase Authentication with e-mail and Google based sign-in methods. Below you see the sign-in screen and the profile screen.
+  <p align="center">
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/95_signin_screen.png?raw=true" alt="Optional sign-in screen to Firebase" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/90_profile_screen.png?raw=true" alt="Profile screen after successful login" width="200"/>
   </p>
 - Shared preferences: The app supports state management using the
 [shared_preferences](https://pub.dev/packages/shared_preferences) package
@@ -44,9 +49,9 @@ widget. The user can access  that can be injected into any new page you create.
   <p align="center">
     <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/30_view_navigation_drawer.gif?raw=true" alt="View navigation drawer" width="200"/>
   </p>
-- languages:
+- languages (English, German, Hungarian, Spanish, Polish and partial Czech support, due to Firebase Flutter package limitations):
   <p align="center">
-    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/40_set_language.gif?raw=true" alt="Set languages" width="200"/>
+    <img src="https://github.com/ka-zo/rapid_app_starter/blob/main/screenshots/45_set_language.gif?raw=true" alt="Set languages" width="200"/>
   </p>
 - Color schemes: The app supports [Material 3](https://m3.material.io/) design with corresponding
 widgets and color schemes. The [ColorSchemeDefinition] class contains predefined color schemes.
